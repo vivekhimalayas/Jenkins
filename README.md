@@ -30,7 +30,8 @@ node('master') {
 
    stage('Build Docker Image') {
      sh"""
-     docker build . --tag \${docker_registry}\${imagename}:\${BUILD_NUMBER}
+     cd node-js/
+   docker build . --tag \${docker_registry}\${imagename}:\${BUILD_NUMBER}
      """
    }
    
