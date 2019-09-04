@@ -19,9 +19,11 @@
     env.cluster_name="node"
    
    stage('Clean WorkSpace'){
+   
        sh 'rm -rf *'
    }
    stage('Git CheckOut') {
+   
       // Get some code from a GitHub repository
         dir('code') {
           git branch: '$branch_name' , credentialsId: git_credentials, url: git_url
@@ -31,6 +33,7 @@
    
 
    stage('Build Docker Image') {
+   
      sh"""
      cd node-js/
     docker build . --tag \${docker_registry}\${imagename}:\${BUILD_NUMBER}
@@ -40,6 +43,7 @@
    // Login and push image to ECR
    
    stage('Push Image to Us-east-2 ECR'){
+   
      sh '$(aws ecr get-login --no-include-email --region $region)'
      
      sh"""
@@ -49,6 +53,7 @@
    }
    
    stage('Delete image from local'){
+   
        sh"""
      docker rmi -f \${docker_registry}\${imagename}:\${BUILD_NUMBER}
      """
