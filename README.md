@@ -1,7 +1,9 @@
 # Jenkins node script
 
  node('master') {
+ 
     // git variables
+    
     git_url='git@github.com:vivekhimalayas/node-js.git'
     git_credentials='xxxxxxxxxxxxxxx'
     //docker variables
@@ -31,7 +33,7 @@
    stage('Build Docker Image') {
      sh"""
      cd node-js/
-   docker build . --tag \${docker_registry}\${imagename}:\${BUILD_NUMBER}
+    docker build . --tag \${docker_registry}\${imagename}:\${BUILD_NUMBER}
      """
    }
    
