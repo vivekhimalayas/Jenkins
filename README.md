@@ -1,6 +1,6 @@
-# Jenkins node code script
+# Jenkins node script
 
-node('master') {
+ node('master') {
     // git variables
     git_url='git@github.com:vivekhimalayas/node-js.git'
     git_credentials='xxxxxxxxxxxxxxx'
