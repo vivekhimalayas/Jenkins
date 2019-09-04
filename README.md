@@ -106,5 +106,4 @@
     if (rollback){
         error 'Deployment failed: Had to rollback'
     }
-
 }
