@@ -1,4 +1,5 @@
 # Jenkins node script
+# This script has variables which point to my ecr repo.Image will be pulled from there,built and run. Comments have been added for the respective section.
 
  node('master') {
  
